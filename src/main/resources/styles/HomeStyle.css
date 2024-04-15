@@ -1,0 +1,48 @@
+.root{
+    -fx-background-color:#fff;
+}
+.header{
+    -fx-background-color:rgb(255,255, 255);
+    -fx-border-color:rgb(235, 235, 235);
+    -fx-border-width: 0 0 1 0;
+}
+.imageButtonContainer{
+    -fx-background-radius:12px;
+    -fx-transition: -fx-background-color 0.3s;
+}
+.imageButtonContainer:hover{
+     -fx-cursor:hand;
+     -fx-background-color:rgb(240,240,240);
+}
+.headerButton{
+    -fx-opacity:100%;
+}
+.headerButton:hover{
+    -fx-opacity:80%;
+}
+.headerTabPane{
+    -fx-tab-min-height: 3em;
+    -fx-tab-min-width: 3em;
+}
+.headerTabPane:top{
+        -fx-background-color:rgb(255,255, 255);
+}
+.headerTabAnchorPane{
+     -fx-padding: 0 10 0 10;
+}
+#tab{
+    -fx-cursor:hand;
+     -fx-background-color:rgb(255,255,255);
+}
+#tab:hover{
+     -fx-background-color:rgb(245,245,245);
+
+}
+#tab:selected{
+        -fx-background-insets: 0 0 0 0;
+        -fx-background-radius: 0 0 0 0;
+        -fx-border-width: 0;
+        -fx-border-insets: 0 0 0 0;
+        -fx-border-radius: 0;
+        -fx-background-color:rgb(245,245,245);
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gym.gym.application.Create.ClientController">
+   <children>
+      <ImageView fx:id="profilePicture" fitHeight="130.0" fitWidth="116.0" layoutX="15.0" layoutY="90.0" onMouseClicked="#addPicture" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="90.0">
+         <image>
+            <Image url="@../../../../../imgs/NoUserImg.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <TextField fx:id="numMatricula" editable="false" layoutX="14.0" layoutY="28.0" prefHeight="30.0" prefWidth="116.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <DatePicker fx:id="dataMatricula" layoutX="142.0" layoutY="28.0" prefHeight="30.0" prefWidth="135.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <ComboBox fx:id="tipoPlano" layoutX="287.0" layoutY="28.0" prefHeight="30.0" prefWidth="500.0" promptText="Selecionar" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="nome" layoutX="160.0" layoutY="109.0" prefHeight="30.0" prefWidth="255.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="109.0" />
+      <TextField fx:id="sobrenome" layoutX="160.0" layoutY="167.0" prefHeight="30.0" prefWidth="255.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="162.0" layoutY="91.0" prefHeight="15.0" prefWidth="39.0" text="Nome" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="599.0" AnchorPane.topAnchor="91.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="162.0" layoutY="149.0" text="Sobrenome">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="612.0" layoutY="92.0" text="Data de Nascimento">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="rg" layoutX="443.0" layoutY="110.0" prefHeight="30.0" prefWidth="135.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="cpf" layoutX="443.0" layoutY="168.0" prefHeight="30.0" prefWidth="135.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="445.0" layoutY="92.0" text="RG">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dataNascimento" layoutX="599.0" layoutY="110.0" prefHeight="30.0" prefWidth="135.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="445.0" layoutY="150.0" text="CPF">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="10.0" text="Matrícula">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="155.0" layoutY="10.0" text="Data da Matrícula">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="287.0" layoutY="10.0" text="Plano">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Separator layoutX="16.0" layoutY="70.0" prefHeight="3.0" prefWidth="768.0" />
+      <Label layoutX="600.0" layoutY="150.0" text="Sexo">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="sexo" layoutX="599.0" layoutY="168.0" prefHeight="30.0" prefWidth="135.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="18.0" layoutY="222.0" text="Naturalidade">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="190.0" layoutY="222.0" text="UF">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="ufNaturalidade" layoutX="189.0" layoutY="240.0" prefHeight="30.0" prefWidth="63.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="265.0" layoutY="222.0" text="Nome da Mãe">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomeMae" layoutX="264.0" layoutY="240.0" prefHeight="30.0" prefWidth="250.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="533.0" layoutY="222.0" text="Nome do Pai">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomePai" layoutX="533.0" layoutY="240.0" prefHeight="30.0" prefWidth="250.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Separator layoutX="16.0" layoutY="289.0" prefHeight="3.0" prefWidth="768.0" />
+      <TextField fx:id="logradouro" layoutX="16.0" layoutY="318.0" prefHeight="30.0" prefWidth="330.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="numEndereco" layoutX="361.0" layoutY="318.0" prefHeight="30.0" prefWidth="56.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="bairroEndereco" layoutX="431.0" layoutY="318.0" prefHeight="30.0" prefWidth="146.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="complementoEndereco" layoutX="588.0" layoutY="318.0" prefHeight="30.0" prefWidth="195.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <ComboBox fx:id="cidadeNaturalidade" layoutX="18.0" layoutY="240.0" prefHeight="30.0" prefWidth="155.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="telefone" layoutX="269.0" layoutY="373.0" prefHeight="30.0" prefWidth="155.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="celular" layoutX="449.0" layoutY="373.0" prefHeight="30.0" prefWidth="155.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <TextField fx:id="telefoneEmergencia" layoutX="628.0" layoutY="373.0" prefHeight="30.0" prefWidth="155.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="18.0" layoutY="300.0" text="Endereço Residencial">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="355.0" text="Cidade">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cidadeEndereco" layoutX="18.0" layoutY="373.0" prefHeight="30.0" prefWidth="155.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="189.0" layoutY="355.0" text="UF">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="ufEndereco" layoutX="188.0" layoutY="373.0" prefHeight="30.0" prefWidth="63.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="433.0" layoutY="300.0" text="Bairro">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="363.0" layoutY="300.0" text="N°">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="590.0" layoutY="300.0" text="Complemento">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="355.0" text="Telefone">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="449.0" layoutY="355.0" text="Celular">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="630.0" layoutY="355.0" text="Telefone Emergencial">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="577.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#handleSaveClient" prefHeight="30.0" prefWidth="100.0" styleClass="btn" stylesheets="@../../../../../styles/FormStyles.css" text="Salvar" />
+      <Button layoutX="686.0" layoutY="556.0" mnemonicParsing="false" onMouseClicked="#cancelRegister" prefHeight="30.0" prefWidth="100.0" styleClass="btn" stylesheets="@../../../../../styles/FormStyles.css" text="Cancelar" />
+      <TextField fx:id="idade" editable="false" layoutX="747.0" layoutY="110.0" prefHeight="30.0" prefWidth="39.0" styleClass="input" stylesheets="@../../../../../styles/FormStyles.css" />
+      <Label layoutX="750.0" layoutY="92.0" text="Idade">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="91.0" text="*" textFill="RED" />
+      <Label layoutX="228.0" layoutY="148.0" text="*" textFill="RED" />
+      <Label layoutX="630.0" layoutY="149.0" text="*" textFill="RED" />
+      <Label layoutX="473.0" layoutY="148.0" text="*" textFill="RED" />
+      <Label layoutX="724.0" layoutY="91.0" text="*" textFill="RED" />
+      <Label layoutX="344.0" layoutY="221.0" text="*" textFill="RED" />
+      <Label layoutX="57.0" layoutY="354.0" text="*" textFill="RED" />
+      <Label layoutX="208.0" layoutY="354.0" text="*" textFill="RED" />
+      <Label layoutX="253.0" layoutY="7.0" text="*" textFill="RED" />
+   </children>
+</AnchorPane>

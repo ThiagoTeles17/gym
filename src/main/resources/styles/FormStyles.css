@@ -1,0 +1,24 @@
+*{
+	-fx-primary-color: #007acc;
+	-fx-secondary-color: #4B6EAF;
+	-fx-grey-color: #b9b9b9;
+	-fx-focus-color: -fx-secondary-color;
+}
+.input {
+	-fx-accent: -fx-primary-color;
+	-fx-background-color: -fx-grey-color, white;
+	-fx-background-insets: 0, 0 0 1 0;
+	-fx-background-radius: 0;
+}
+.input:focused {
+	-fx-background-color: -fx-primary-color, white;
+}
+.btn{
+    -fx-background-color:rgba(5, 21, 122, 1);
+    -fx-text-fill:white;
+    -fx-cursor:hand;
+    -fx-transition:.5s;
+}
+.btn:hover{
+        -fx-background-color:rgba(5, 21, 100, 1);
+}

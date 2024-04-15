@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@../../../../../styles/TableStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gym.gym.application.ManageClients.ManageClientsController">
+   <children>
+      <TableView fx:id="clientsTable" prefHeight="646.0" prefWidth="839.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="0.0">
+        <columns>
+          <TableColumn fx:id="columnMatricula" editable="false" prefWidth="75.0" resizable="false" text="Matrícula" />
+          <TableColumn id="table-view-column-nome" fx:id="columnNome" editable="false" prefWidth="389.0" resizable="false" text="Nome" />
+            <TableColumn fx:id="columnDataNascimento" editable="false" maxWidth="1000.0" minWidth="0.0" prefWidth="197.0" resizable="false" text="Data de Nascimento" />
+            <TableColumn fx:id="columnDataMatricula" editable="false" prefWidth="105.0" resizable="false" text="Data de Matricula" />
+            <TableColumn fx:id="columnSituacao" editable="false" maxWidth="385.0" minWidth="0.0" prefWidth="72.0" resizable="false" sortable="false" text="Situação" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="addClientBtn" fitHeight="33.0" fitWidth="33.0" layoutX="9.0" layoutY="608.0" onMouseClicked="#addNewClient" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
+         <image>
+            <Image url="@../../../../../imgs/circleplus.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="addClientBtn1" fitHeight="32.0" fitWidth="32.0" layoutX="49.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
+         <image>
+            <Image url="@../../../../../imgs/circlepencil.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="addClientBtn11" fitHeight="17.0" fitWidth="25.0" layoutX="974.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
+         <image>
+            <Image url="@../../../../../imgs/filter.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="addClientBtn111" fitHeight="32.0" fitWidth="32.0" layoutX="951.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="951.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="608.0">
+         <image>
+            <Image url="@../../../../../imgs/printer.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="146.0" layoutX="847.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="addClientBtn12" fitHeight="32.0" fitWidth="32.0" layoutX="89.0" layoutY="608.0" onMouseClicked="#handleRemoveClient" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@../../../../../imgs/circletrashbin.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="846.0" layoutY="31.0" prefHeight="27.0" prefWidth="146.0" promptText="Nome do aluno..." />
+      <Label layoutX="846.0" layoutY="8.0" prefHeight="17.0" prefWidth="90.0" text="Pesquisar aluno:" />
+      <Label fx:id="clientesLength" layoutX="972.0" layoutY="257.0" text="0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="852.0" layoutY="258.0" text="Alunos Cadastrados:">
+         <font>
+            <Font name="Franklin Gothic Book" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="852.0" layoutY="278.0" text="Alunos Ativos:">
+         <font>
+            <Font name="Franklin Gothic Book" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="clientesAtivosLength" layoutX="972.0" layoutY="277.0" text="0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="852.0" layoutY="297.0" text="Alunos Inativos:">
+         <font>
+            <Font name="Franklin Gothic Book" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="clientesInativosLength" layoutX="972.0" layoutY="296.0" text="0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
