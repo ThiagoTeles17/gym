@@ -1,4 +1,4 @@
-package com.gym.gym.application.Create;
+package com.gym.gym.application.ManageClients.Create;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -14,10 +14,11 @@
 	-fx-background-color: -fx-primary-color, white;
 }
 .btn{
-    -fx-background-color:rgba(5, 21, 122, 1);
+    -fx-background-color:#1A1E48;
     -fx-text-fill:white;
     -fx-cursor:hand;
     -fx-transition:.5s;
+    -fx-background-radius: 15px;
 }
 .btn:hover{
         -fx-background-color:rgba(5, 21, 100, 1);

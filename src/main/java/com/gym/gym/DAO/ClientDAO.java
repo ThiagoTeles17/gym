@@ -16,7 +16,6 @@ import java.util.List;
 
 public class ClientDAO {
 
-
     public List<ClientModel> clientsList = new ArrayList<>();
 
     public int clientsLength;
@@ -122,30 +121,8 @@ public class ClientDAO {
         }
 
 
-        try {
-            ps = DBUtil.getConnection().createStatement();
-            ResultSet rs = ps.executeQuery("SELECT COUNT(*) FROM `clientes`");
-            while (rs.next()){
-                clientsLength = rs.getInt("COUNT(*)");
-            }
 
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
 
-        try {
-            ps = DBUtil.getConnection().createStatement();
-            ResultSet rs = ps.executeQuery("SELECT COUNT(*) FROM `clientes` WHERE ativo=1");
-            while (rs.next()){
-                clientsAtivosLength = rs.getInt("COUNT(*)");
-            }
-            ps.close();
-
-        }
-        catch (SQLException e){
-            e.printStackTrace();
-        }
 
 
 
@@ -190,15 +167,84 @@ public class ClientDAO {
         return 0;
     }
 
+    public void EditClient(ClientModel client){
+        String sql = "UPDATE `clientes` SET numMatricula=?, dataMatricula=?, idPlano=?, nome=?, sobrenome=?, rg=?, emissorRg=?, cpf=?, dataNascimento=?, sexo=?, cidadeNaturalidade=?, ufNaturalidade=?, cidadeEndereco=?, ufEndereco=?, nomeMae=?, nomePai=?, logradouro=?, numEndereco=?, bairroEndereco=?, complementoEndereco=?, telefone=?, celular=?, telefoneEmergencia=?, ativo=?, profilePic=? WHERE numMatricula=?";
+
+        PreparedStatement ps = null;
+
+        try {
+            ps = DBUtil.getConnection().prepareStatement(sql);
+            ps.setString(1, String.valueOf(client.getNumMatricula()));
+            ps.setDate(2,  client.getDataMatricula());
+            ps.setInt(3, client.getIdPlano());
+            ps.setString(4, client.getNome());
+            ps.setString(5, client.getSobrenome());
+            ps.setString(6, client.getRg());
+            ps.setString(7, client.getEmissorRg());
+            ps.setString(8, client.getCpf());
+            ps.setDate(9, client.getDataNascimento());
+            ps.setString(10, client.getSexo());
+            ps.setString(11, client.getCidadeNaturalidade());
+            ps.setString(12, !client.getUfNaturalidade().equals("null")? client.getUfNaturalidade() : "");
+            ps.setString(13, client.getCidadeEndereco());
+            ps.setString(14, client.getUfEndereco());
+            ps.setString(15, client.getNomeMae());
+            ps.setString(16, client.getNomePai());
+            ps.setString(17, client.getLogradouro());
+            ps.setString(18, client.getNumEndereco());
+            ps.setString(19, client.getBairroEndereco());
+            ps.setString(20, client.getComplementoEndereco());
+            ps.setString(21, client.getTelefone());
+            ps.setString(22, client.getCelular());
+            ps.setString(23, client.getTelefoneEmergencia());
+            ps.setBoolean(24, client.getAtivo());
+            ps.setBlob(25, client.getProfilePic());
+            ps.setString(26, client.getNumMatricula());
+
+            ps.execute();
+            ps.close();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
+    }
+
     public List<ClientModel> getClientsList(){
         return clientsList;
     }
 
     public int getClientsLength() {
+        Statement ps = null;
+        try {
+            ps = DBUtil.getConnection().createStatement();
+            ResultSet rs = ps.executeQuery("SELECT COUNT(*) FROM `clientes`");
+            while (rs.next()){
+                clientsLength = rs.getInt("COUNT(*)");
+            }
+
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
         return clientsLength;
     }
 
     public int getClientsAtivosLength() {
+        Statement ps = null;
+        try {
+            ps = DBUtil.getConnection().createStatement();
+            ResultSet rs = ps.executeQuery("SELECT COUNT(*) FROM `clientes` WHERE ativo=1");
+            while (rs.next()){
+                clientsAtivosLength = rs.getInt("COUNT(*)");
+            }
+            ps.close();
+
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
         return clientsAtivosLength;
     }
 }

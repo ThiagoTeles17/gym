@@ -21,7 +21,10 @@ public class HomeScreen extends Application {
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
-        Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeScreen.fxml"));
+        Parent root = (Parent) loader.load();
+        HomeController homeController = loader.getController();
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
@@ -30,6 +33,7 @@ public class HomeScreen extends Application {
         stage.setMinHeight(screenBounds.getHeight());
         stage.setMinWidth(screenBounds.getWidth());
         stage.setMaximized(true);
+        homeController.main();
         stage.show();
     }
 

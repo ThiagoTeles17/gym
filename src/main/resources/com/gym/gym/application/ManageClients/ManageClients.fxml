@@ -29,7 +29,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="addClientBtn1" fitHeight="32.0" fitWidth="32.0" layoutX="49.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
+      <ImageView fx:id="addClientBtn1" fitHeight="32.0" fitWidth="32.0" layoutX="49.0" layoutY="608.0" onMouseClicked="#handleEditClient" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
          <image>
             <Image url="@../../../../../imgs/circlepencil.png" />
          </image>
@@ -37,7 +37,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="addClientBtn11" fitHeight="17.0" fitWidth="25.0" layoutX="974.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
+      <ImageView fx:id="addClientBtn11" fitHeight="17.0" fitWidth="25.0" layoutX="974.0" layoutY="6.0" onMouseClicked="#handleFilterClients" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
          <image>
             <Image url="@../../../../../imgs/filter.png" />
          </image>
@@ -53,7 +53,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="146.0" layoutX="847.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="146.0" layoutX="847.0" layoutY="69.0" onMouseClicked="#handleFilterClients" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="addClientBtn12" fitHeight="32.0" fitWidth="32.0" layoutX="89.0" layoutY="608.0" onMouseClicked="#handleRemoveClient" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
          <cursor>
             <Cursor fx:constant="HAND" />

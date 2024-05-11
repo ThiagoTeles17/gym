@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../../../../../styles/HomeStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gym.gym.application.Home.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="root" stylesheets="@../../../../../styles/HomeStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gym.gym.application.Home.HomeController">
    <children>
       <TabPane prefHeight="117.0" prefWidth="600.0" styleClass="headerTabPane" stylesheets="@../../../../../styles/HomeStyle.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
@@ -18,9 +19,9 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="600.0" styleClass="header">
                      <children>
-                        <Pane layoutX="11.0" layoutY="7.0" onMouseClicked="#listClients" prefHeight="60.0" prefWidth="73.0" styleClass="imageButtonContainer">
+                        <Pane layoutX="11.0" layoutY="7.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
                            <children>
-                              <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="15.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="15.0" layoutY="10.0" onMouseClicked="#ManageClients" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../imgs/NovoAluno.png" />
                                  </image>
@@ -28,47 +29,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <Label layoutX="4.0" layoutY="47.0" text="Sua Academia">
-                                 <font>
-                                    <Font name="Rockwell" size="10.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </content>
-               <graphic>
-                  <AnchorPane prefHeight="22.0" prefWidth="107.0" styleClass="headerTabAnchorPane">
-                     <children>
-                        <ImageView fitHeight="22.0" fitWidth="35.0" layoutX="9.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../imgs/dashboard.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="37.0" layoutY="3.0" prefHeight="17.0" prefWidth="62.0" text="Dashboard" />
-                     </children>
-                  </AnchorPane>
-               </graphic>
-            </Tab>
-          <Tab id="tab">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="600.0" styleClass="header">
-                     <children>
-                        <Pane layoutX="14.0" layoutY="6.0" onMouseClicked="#newClient" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
-                           <children>
-                              <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../imgs/NovoAluno.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <Label layoutX="16.0" layoutY="44.0" text="Aluno">
+                              <Label layoutX="14.0" layoutY="44.0" text="Alunos">
                                  <font>
                                     <Font name="Rockwell" size="10.0" />
                                  </font>
@@ -80,107 +41,7 @@
                         </Pane>
                         <Pane layoutX="82.0" layoutY="6.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
                            <children>
-                              <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../imgs/NovoProfessor.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <Label layoutX="9.0" layoutY="44.0" text="Professor">
-                                 <font>
-                                    <Font name="Rockwell" size="10.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Pane>
-                        <Pane layoutX="217.0" layoutY="6.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
-                           <children>
-                              <ImageView fitHeight="39.0" fitWidth="38.0" layoutX="11.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../imgs/Plano.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <Label layoutX="17.0" layoutY="44.0" text="Plano">
-                                 <font>
-                                    <Font name="Rockwell" size="10.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Pane>
-                        <Pane layoutX="151.0" layoutY="7.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
-                           <children>
-                              <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="10.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../imgs/funcionario.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <Label layoutX="3.0" layoutY="46.0" text="Funcionário">
-                                 <font>
-                                    <Font name="Rockwell" size="10.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-            </content>
-               <graphic>
-                  <AnchorPane prefHeight="22.0" prefWidth="107.0" styleClass="headerTabAnchorPane">
-                     <children>
-                        <ImageView fitHeight="15.0" fitWidth="16.0" layoutX="9.0" layoutY="4.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../imgs/Plus.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="37.0" layoutY="3.0" prefHeight="17.0" prefWidth="50.0" text="Cadastro" />
-                     </children>
-                  </AnchorPane>
-               </graphic>
-          </Tab>
-            <Tab id="tab">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="600.0" styleClass="header">
-                     <children>
-                        <Pane layoutX="14.0" layoutY="6.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
-                           <children>
-                              <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="8.0" onMouseClicked="#ManageClients" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../../../imgs/NovoAluno.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <Label layoutX="13.0" layoutY="44.0" text="Alunos">
-                                 <font>
-                                    <Font name="Rockwell" size="10.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Pane>
-                        <Pane layoutX="82.0" layoutY="6.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
-                           <children>
-                              <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="18.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../imgs/NovoProfessor.png" />
                                  </image>
@@ -200,7 +61,7 @@
                         </Pane>
                         <Pane layoutX="150.0" layoutY="6.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
                            <children>
-                              <ImageView fitHeight="39.0" fitWidth="38.0" layoutX="11.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../imgs/Plano.png" />
                                  </image>
@@ -236,10 +97,61 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label layoutX="199.0" layoutY="193.0" opacity="0.42" text="GYM Control system - Version 1.0.0" AnchorPane.bottomAnchor="192.0" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="198.0" AnchorPane.topAnchor="193.0">
-         <font>
-            <Font name="Inter Regular" size="12.0" />
-         </font>
-      </Label>
+      <Pane layoutX="8.0" layoutY="128.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="410.0" styleClass="dashboardPanes" stylesheets="@../../../../../styles/HomeStyle.css">
+         <children>
+            <Label layoutX="184.0" layoutY="55.0" styleClass="shadow" text="ATIVOS" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="alunosAtivosDash" layoutX="198.0" layoutY="90.0" styleClass="shadow" text="0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="8.0" prefWidth="76.0" styleClass="shadow" text="ALUNOS" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label fx:id="alunosInativosDash" layoutX="322.0" layoutY="90.0" styleClass="shadow" text="0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="301.0" layoutY="55.0" styleClass="shadow" text="INATIVOS" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="55.0" styleClass="shadow" text="CADASTRADOS" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="alunosCadastradosDash" layoutX="66.0" layoutY="90.0" styleClass="shadow" text="0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Bold" size="42.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="8.0" layoutY="319.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="167.0" prefWidth="410.0" styleClass="dashboardPanes" stylesheets="@../../../../../styles/HomeStyle.css">
+         <children>
+            <Label layoutX="196.0" layoutY="70.0" styleClass="shadow" text="0" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Bold" size="42.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" styleClass="shadow" text="PRESENÇAS/DIA" textFill="WHITE">
+               <font>
+                  <Font name="Tw Cen MT Condensed Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

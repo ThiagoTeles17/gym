@@ -1,35 +1,41 @@
 package com.gym.gym.application.ManageClients;
 
 import com.gym.gym.DAO.ClientDAO;
-import com.gym.gym.application.Create.ClientScreen;
+import com.gym.gym.application.ManageClients.Create.ClientScreen;
+import com.gym.gym.application.ManageClients.Edit.EditClientController;
+import com.gym.gym.application.ManageClients.Edit.EditClientScreen;
 import com.gym.gym.model.ClientModel;
-import com.gym.gym.util.DBUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
-import java.util.regex.Pattern;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class ManageClientsController {
+
+    public Stage filterScreenStage = new Stage();
 
     @FXML
     private ImageView profilePicture;
@@ -66,6 +72,14 @@ public class ManageClientsController {
 
     @FXML
     private Label clientesInativosLength;
+
+
+    @FXML
+    AnchorPane filterAp;
+
+
+
+
 
     ClientDAO clientDAO = new ClientDAO();
 
@@ -124,7 +138,6 @@ public class ManageClientsController {
         clientesAtivosLength.setText(String.valueOf(clientDAO.getClientsAtivosLength()));
         clientesInativosLength.setText(String.valueOf(clientDAO.getClientsLength() - clientDAO.getClientsAtivosLength()));
 
-
         clientsObservableList = FXCollections.observableArrayList(clientDAO.getClientsList());
         clientsTable.setItems(clientsObservableList);
 
@@ -168,14 +181,24 @@ public class ManageClientsController {
 
                     if(currentClient.getProfilePicImg() != null){
                         profilePicture.setImage(currentClient.getProfilePicImg());
-
-
                     }
 
                 }
             }
         });
 
+        clientsTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if(event.getClickCount() == 2){
+                    try {
+                        handleEditClient();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
     }
 
     private void resizeRowHeight(double newHeight){
@@ -194,4 +217,44 @@ public class ManageClientsController {
         });
     }
 
+
+    public void handleFilterClients() throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("FilterDataScreen.fxml"));
+
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        filterScreenStage.setScene(scene);
+        filterScreenStage.setTitle("Filtrar");
+        filterScreenStage.setResizable(false);
+        filterScreenStage.setMaximized(false);
+        filterScreenStage.show();
+
+    }
+    public void cancelFilterClients(){
+
+        if(filterAp != null) {
+            filterScreenStage = (Stage) filterAp.getScene().getWindow();
+            filterScreenStage.close();
+        }
+
+    }
+    public void handleEditClient() throws Exception{
+
+        try {
+            EditClientScreen editClientScreen = new EditClientScreen();
+            editClientScreen.start(new Stage());
+            EditClientController controller = editClientScreen.getController();
+            controller.setClient(clientsTable.getSelectionModel().getSelectedItem());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+    }
+
 }
+

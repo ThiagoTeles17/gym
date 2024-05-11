@@ -1,18 +1,19 @@
 .root{
-    -fx-background-color:#fff;
+  -fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#071224, #091933);
 }
 .header{
-    -fx-background-color:rgb(255,255, 255);
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#071224, #091933);
     -fx-border-color:rgb(235, 235, 235);
     -fx-border-width: 0 0 1 0;
 }
 .imageButtonContainer{
     -fx-background-radius:12px;
-    -fx-transition: -fx-background-color 0.3s;
+    -fx-background-color:rgba(245,245,245, 1);
 }
 .imageButtonContainer:hover{
      -fx-cursor:hand;
-     -fx-background-color:rgb(240,240,240);
+     -fx-background-color:rgb(210,210,210);
+     transition: -fx-background-color 3s ease;
 }
 .headerButton{
     -fx-opacity:100%;
@@ -24,19 +25,24 @@
     -fx-tab-min-height: 3em;
     -fx-tab-min-width: 3em;
 }
+.tab-header-area .tab-header-background {
+         -fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#071224,#091933);
+}
 .headerTabPane:top{
-        -fx-background-color:rgb(255,255, 255);
+      -fx-background-color: linear-gradient(from 25% 25% to 100% 100%,#071224, #091933);
 }
 .headerTabAnchorPane{
      -fx-padding: 0 10 0 10;
 }
+.headerTabAnchorPane .label{
+    -fx-text-fill: white;
+}
 #tab{
     -fx-cursor:hand;
-     -fx-background-color:rgb(255,255,255);
+    -fx-background-color: #071224
 }
 #tab:hover{
      -fx-background-color:rgb(245,245,245);
-
 }
 #tab:selected{
         -fx-background-insets: 0 0 0 0;
@@ -44,5 +50,12 @@
         -fx-border-width: 0;
         -fx-border-insets: 0 0 0 0;
         -fx-border-radius: 0;
-        -fx-background-color:rgb(245,245,245);
+        -fx-background-color: #071224;
+}
+.dashboardPanes{
+        -fx-background-radius: 15px;
+        -fx-background-color: rgba(209, 209, 209, .1);
+}
+.shadow{
+        -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
 }

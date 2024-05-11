@@ -12,7 +12,7 @@ public class ManageClientsScreen extends Application {
 
 
     private static Stage stage;
-
+    private ManageClientsController controller;
 
 
     public static void main(String[] args){
@@ -25,7 +25,7 @@ public class ManageClientsScreen extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ManageClients.fxml"));
         Parent root = loader.load();
-        ManageClientsController controller = loader.getController();
+        controller = loader.getController();
         ManageClientsScreen.stage = stage;
 
         Scene scene = new Scene(root);
@@ -36,5 +36,9 @@ public class ManageClientsScreen extends Application {
         controller.main();
         stage.show();
 
+    }
+
+    public ManageClientsController getController(){
+        return this.controller;
     }
 }

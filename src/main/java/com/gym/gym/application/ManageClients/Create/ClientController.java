@@ -1,14 +1,10 @@
-package com.gym.gym.application.Create;
+package com.gym.gym.application.ManageClients.Create;
 
 import com.gym.gym.DAO.ClientDAO;
 import com.gym.gym.DAO.UfCidadesDAO;
-import com.gym.gym.UsefulData;
-import com.gym.gym.application.ManageClients.ManageClientsController;
 import com.gym.gym.model.ClientModel;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,11 +15,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -178,9 +171,11 @@ public class ClientController {
     }
 
     public void calculateAge(){
-        LocalDate dataDeNascimento = dataNascimento.getValue();
-        Period period = Period.between(dataDeNascimento, LocalDate.now());
-        idade.setText(String.valueOf(period.getYears()));
+        if(dataNascimento.getValue() != null) {
+            LocalDate dataDeNascimento = dataNascimento.getValue();
+            Period period = Period.between(dataDeNascimento, LocalDate.now());
+            idade.setText(String.valueOf(period.getYears()));
+        }
     }
 
 
