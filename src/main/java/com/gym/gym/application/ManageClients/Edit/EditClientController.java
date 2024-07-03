@@ -49,7 +49,6 @@ public class EditClientController {
             DatePicker dataNascimento;
     @FXML
             ComboBox sexo;
-
     @FXML
             ComboBox ufNaturalidade;
     @FXML
@@ -68,7 +67,6 @@ public class EditClientController {
             TextField bairroEndereco;
     @FXML
             TextField complementoEndereco;
-
     @FXML
             ComboBox ufEndereco;
     @FXML
@@ -87,9 +85,7 @@ public class EditClientController {
     private List<String> cidadesEnderecoList;
     private List<String> cidadesNaturalidadeList;
     private List<String> ufList;
-
     private FileInputStream profilePicIS;
-
     private ClientModel client;
 
     Stage stage;
@@ -97,7 +93,6 @@ public class EditClientController {
     public void main(){
         initListeners();
         sexo.setItems(FXCollections.observableArrayList("Masculino", "Feminino"));
-
     }
 
     public void setClient(ClientModel client){
@@ -152,8 +147,9 @@ public class EditClientController {
         selectAtivo.setValue(client.getAtivo() ? "Ativo" : "Inativo");
 
         //Verify if image exists
-        if(client.getProfilePicImg().getWidth() != 0 && client.getProfilePicImg() != null){
-            profilePicture.setImage(client.getProfilePicImg());
+        if(client.getProfilePicImg() != null){
+            if(client.getProfilePicImg().getWidth() != 0)
+                    profilePicture.setImage(client.getProfilePicImg());
         }
 
 
@@ -217,7 +213,6 @@ public class EditClientController {
             if (ap != null) {
                 stage = (Stage) ap.getScene().getWindow();
                 stage.close();
-
             }
 
         }

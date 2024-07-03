@@ -19,9 +19,9 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="600.0" styleClass="header">
                      <children>
-                        <Pane layoutX="11.0" layoutY="7.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
+                        <Pane layoutX="11.0" layoutY="7.0" onMouseClicked="#ManageClients" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
                            <children>
-                              <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="15.0" layoutY="10.0" onMouseClicked="#ManageClients" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../../../imgs/NovoAluno.png" />
                                  </image>
@@ -59,7 +59,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Pane>
-                        <Pane layoutX="150.0" layoutY="6.0" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
+                        <Pane layoutX="150.0" layoutY="6.0" onMouseClicked="#ManagePlans" prefHeight="60.0" prefWidth="60.0" styleClass="imageButtonContainer">
                            <children>
                               <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

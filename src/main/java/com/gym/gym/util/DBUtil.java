@@ -12,7 +12,8 @@ public class DBUtil {
 
     private static Connection conn;
 
-    public static Connection getConnection() {
+
+    public static Connection getConnection(){
 
         try {
             if(conn == null) {
@@ -24,6 +25,7 @@ public class DBUtil {
             }
         }
         catch(SQLException exception){
+            System.out.println("ERRO: ");
             exception.printStackTrace();
             return null;
         }

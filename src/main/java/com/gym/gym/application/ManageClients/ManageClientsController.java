@@ -1,10 +1,12 @@
 package com.gym.gym.application.ManageClients;
 
 import com.gym.gym.DAO.ClientDAO;
+import com.gym.gym.DAO.PlanDAO;
 import com.gym.gym.application.ManageClients.Create.ClientScreen;
 import com.gym.gym.application.ManageClients.Edit.EditClientController;
 import com.gym.gym.application.ManageClients.Edit.EditClientScreen;
 import com.gym.gym.model.ClientModel;
+import com.gym.gym.model.PlanModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -72,14 +74,11 @@ public class ManageClientsController {
 
     @FXML
     private Label clientesInativosLength;
-
+    @FXML
+    private TableColumn columnPlano;
 
     @FXML
     AnchorPane filterAp;
-
-
-
-
 
     ClientDAO clientDAO = new ClientDAO();
 
@@ -94,15 +93,25 @@ public class ManageClientsController {
 
     public void getClientsAndSetList()
     {
-        //Format dataNascimento to pattern dd/MM/yyyy
-        columnDataMatricula.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientModel, String>, ObservableValue<String>>() {
+        columnPlano.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientModel, String>, ObservableValue<String>>() {
             @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<ClientModel, String> param) {
-                Date dataDeMatricula = param.getValue().getDataMatricula();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                return new SimpleStringProperty(String.valueOf(simpleDateFormat.format(dataDeMatricula)));
+            public ObservableValue call(TableColumn.CellDataFeatures<ClientModel, String> param) {
+                PlanModel planModel;
+                planModel = new PlanDAO().getPlanById(param.getValue().getIdPlano());
+                return new SimpleStringProperty(planModel.getNome());
             }
         });
+
+
+        //Format dataNascimento to pattern dd/MM/yyyy
+        columnDataMatricula.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ClientModel, String>, ObservableValue<String>>() {
+        @Override
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<ClientModel, String> param) {
+            Date dataDeMatricula = param.getValue().getDataMatricula();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            return new SimpleStringProperty(String.valueOf(simpleDateFormat.format(dataDeMatricula)));
+        }
+    });
 
         //concat name and last name
         columnNome.setCellValueFactory(
@@ -173,6 +182,13 @@ public class ManageClientsController {
 
     public void tableListener(){
 
+        //Initial listener
+        currentClient = clientsTable.getFocusModel().getFocusedItem();
+        if(currentClient.getProfilePicImg() != null){
+            profilePicture.setImage(currentClient.getProfilePicImg());
+        }
+
+        //Change listener
         clientsTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ClientModel>() {
             @Override
             public void changed(ObservableValue<? extends ClientModel> observable, ClientModel oldValue, ClientModel newValue) {
@@ -181,6 +197,9 @@ public class ManageClientsController {
 
                     if(currentClient.getProfilePicImg() != null){
                         profilePicture.setImage(currentClient.getProfilePicImg());
+                    }
+                    else {
+                        profilePicture.setImage(null);
                     }
 
                 }
@@ -255,6 +274,19 @@ public class ManageClientsController {
 
 
     }
+    //TODO
+    public void openAvaliationForm() throws Exception{
+        try{
+            PhysicalAvaliationForm physicalAvaliationForm = new PhysicalAvaliationForm();
+            physicalAvaliationForm.start(new Stage());
+            PhysicalAvaliationFormController controller = physicalAvaliationForm.getController();
+            controller.setClient(clientsTable.getSelectionModel().getSelectedItem());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }
 

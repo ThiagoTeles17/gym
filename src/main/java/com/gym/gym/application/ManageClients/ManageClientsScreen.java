@@ -5,13 +5,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.event.MouseEvent;
+import java.beans.EventHandler;
+
 public class ManageClientsScreen extends Application {
 
-
     private static Stage stage;
+
+    @FXML
+    Button avaliationBtn;
     private ManageClientsController controller;
 
 
@@ -37,6 +43,13 @@ public class ManageClientsScreen extends Application {
         stage.show();
 
     }
+
+
+    public Stage getStage(){
+        return ManageClientsScreen.stage;
+    }
+
+
 
     public ManageClientsController getController(){
         return this.controller;

@@ -3,9 +3,12 @@ package com.gym.gym.application.Home;
 import com.gym.gym.DAO.ClientDAO;
 import com.gym.gym.application.ManageClients.Create.ClientScreen;
 import com.gym.gym.application.ManageClients.ManageClientsScreen;
+import com.gym.gym.application.ManagePlans.ManagePlansScreen;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+
+import java.util.concurrent.ExecutionException;
 
 public class HomeController {
 
@@ -40,6 +43,16 @@ public class HomeController {
     public void ManageClients(){
         try {
             new ManageClientsScreen().start(new Stage());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void ManagePlans(){
+        try{
+            new ManagePlansScreen().start(new Stage());
+
         }
         catch (Exception e){
             e.printStackTrace();

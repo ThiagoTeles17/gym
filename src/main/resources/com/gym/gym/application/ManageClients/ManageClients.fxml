@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,10 +16,11 @@
       <TableView fx:id="clientsTable" prefHeight="646.0" prefWidth="839.0" AnchorPane.bottomAnchor="54.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="columnMatricula" editable="false" prefWidth="75.0" resizable="false" text="Matrícula" />
-          <TableColumn id="table-view-column-nome" fx:id="columnNome" editable="false" prefWidth="389.0" resizable="false" text="Nome" />
-            <TableColumn fx:id="columnDataNascimento" editable="false" maxWidth="1000.0" minWidth="0.0" prefWidth="197.0" resizable="false" text="Data de Nascimento" />
-            <TableColumn fx:id="columnDataMatricula" editable="false" prefWidth="105.0" resizable="false" text="Data de Matricula" />
-            <TableColumn fx:id="columnSituacao" editable="false" maxWidth="385.0" minWidth="0.0" prefWidth="72.0" resizable="false" sortable="false" text="Situação" />
+          <TableColumn id="table-view-column-nome" fx:id="columnNome" editable="false" prefWidth="283.0" resizable="false" text="Nome" />
+            <TableColumn fx:id="columnDataNascimento" editable="false" maxWidth="1000.0" minWidth="0.0" prefWidth="129.0" resizable="false" text="Data de Nascimento" />
+            <TableColumn fx:id="columnDataMatricula" editable="false" prefWidth="113.0" resizable="false" text="Data de Matricula" />
+            <TableColumn fx:id="columnPlano" editable="false" maxWidth="385.0" minWidth="0.0" prefWidth="168.0" resizable="false" sortable="false" text="Plano" />
+            <TableColumn fx:id="columnSituacao" editable="false" maxWidth="385.0" minWidth="0.0" prefWidth="70.0" resizable="false" sortable="false" text="Situação" />
         </columns>
       </TableView>
       <ImageView fx:id="addClientBtn" fitHeight="33.0" fitWidth="33.0" layoutX="9.0" layoutY="608.0" onMouseClicked="#addNewClient" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
@@ -53,7 +55,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="146.0" layoutX="847.0" layoutY="69.0" onMouseClicked="#handleFilterClients" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="profilePicture" fitHeight="150.0" fitWidth="146.0" layoutX="847.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="addClientBtn12" fitHeight="32.0" fitWidth="32.0" layoutX="89.0" layoutY="608.0" onMouseClicked="#handleRemoveClient" pickOnBounds="true" preserveRatio="true" styleClass="btnChangeOpacityOnHover">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -94,5 +96,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="avaliationBtn" layoutX="870.0" layoutY="338.0" mnemonicParsing="false" onMouseClicked="#openAvaliationForm" text="Avaliação Física" />
    </children>
 </AnchorPane>

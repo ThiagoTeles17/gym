@@ -1,4 +1,5 @@
 module com.gym.gym {
+
     requires java.desktop;
     requires javafx.controls;
     requires javafx.fxml;
@@ -12,14 +13,17 @@ module com.gym.gym {
     exports com.gym.gym.application.ManageClients;
     opens com.gym.gym.application.ManageClients to javafx.fxml;
 
+    exports com.gym.gym.application.ManagePlans;
+    opens com.gym.gym.application.ManagePlans to javafx.fxml;
+
+    exports com.gym.gym.application.ManagePlans.Create;
+    opens com.gym.gym.application.ManagePlans.Create to javafx.fxml;
+
     exports com.gym.gym.application.ManageClients.Create;
     opens com.gym.gym.application.ManageClients.Create to javafx.fxml;
 
     exports com.gym.gym.application.ManageClients.Edit;
     opens com.gym.gym.application.ManageClients.Edit to javafx.fxml;
-
-
-
 
     exports com.gym.gym.application.Login;
     opens com.gym.gym.application.Login to javafx.fxml;

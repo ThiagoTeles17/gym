@@ -72,11 +72,13 @@ public class ClientDAO {
         String sql = "SELECT * FROM clientes";
 
         Statement ps = null;
-
+        Connection dbUtil = DBUtil.getConnection();
         try {
+
             ps = DBUtil.getConnection().createStatement();
 
             ResultSet rs = ps.executeQuery(sql);
+
             while (rs.next()){
                 ClientModel client = new ClientModel();
                 client.setNome(rs.getString("nome"));

@@ -1,24 +1,35 @@
 package com.gym.gym.application.ManageClients.Create;
 
 import com.gym.gym.DAO.ClientDAO;
+import com.gym.gym.DAO.PlanDAO;
 import com.gym.gym.DAO.UfCidadesDAO;
+import com.gym.gym.application.ManageClients.ManageClientsController;
+import com.gym.gym.application.ManageClients.ManageClientsScreen;
 import com.gym.gym.model.ClientModel;
+import com.gym.gym.model.PlanModel;
 import javafx.collections.FXCollections;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class ClientController {
 
@@ -44,7 +55,6 @@ public class ClientController {
             DatePicker dataNascimento;
     @FXML
             ComboBox sexo;
-
     @FXML
             ComboBox ufNaturalidade;
     @FXML
@@ -63,7 +73,6 @@ public class ClientController {
             TextField bairroEndereco;
     @FXML
             TextField complementoEndereco;
-
     @FXML
             ComboBox ufEndereco;
     @FXML
@@ -74,6 +83,12 @@ public class ClientController {
             TextField telefoneEmergencia;
     @FXML
             TextField idade;
+    @FXML
+        ComboBox formaPagamento;
+    @FXML
+        TextField valorPlano;
+
+    private int idPlano;
 
     private boolean ativo = true;
 
@@ -84,10 +99,36 @@ public class ClientController {
     private FileInputStream profilePicIS;
 
 
+    private PlanDAO planDAO = new PlanDAO();
+
     Stage stage;
 
     public void main(){
         initListeners();
+
+        formaPagamento.setItems(FXCollections.observableArrayList(
+                "Dinheiro",
+                "Cartão de Crédito",
+                "Cartão de Débito",
+                "PIX",
+                "Depósito Bancário"
+        ));
+
+        planDAO.getPlans();
+        tipoPlano.setItems(FXCollections.observableArrayList(planDAO.getPlansList()));
+
+
+        tipoPlano.setConverter(new StringConverter<PlanModel>(){
+            @Override
+            public String toString(PlanModel plan){
+                return plan.getId() + " - " + plan.getNome();
+            }
+            @Override
+            public PlanModel fromString(String string){
+                return null;
+            }
+        });
+
         numMatricula.setText(String.valueOf(new ClientDAO().getLastMatricula() + 1));
         sexo.setItems(FXCollections.observableArrayList("Masculino", "Feminino"));
 
@@ -118,9 +159,7 @@ public class ClientController {
 
     }
 
-    public void handleSaveClient(){
-
-
+    public void handleSaveClient() throws IOException {
 
         ClientModel client = new ClientModel();
 
@@ -129,7 +168,7 @@ public class ClientController {
         if(errors.equals("")){
             client.setNumMatricula(numMatricula.getText());
             client.setDataMatricula(java.sql.Date.valueOf(dataMatricula.getValue()));
-            client.setIdPlano(1);
+            client.setIdPlano(idPlano);
             client.setNome(nome.getText());
             client.setSobrenome(sobrenome.getText());
             client.setRg(rg.getText());
@@ -218,12 +257,6 @@ public class ClientController {
         return errorMsg;
     }
 
-
-
-
-
-
-
     public void initListeners(){
         dataNascimento.focusedProperty().addListener((obs, oldVal, newVal) -> {
             if(!newVal)
@@ -242,7 +275,12 @@ public class ClientController {
             }
         });
 
-
+        //Get id from selected plan
+        tipoPlano.valueProperty().addListener((obs, oldVal, newVal) -> {
+            PlanModel plan = (PlanModel) newVal;
+            idPlano = plan.getId();
+            valorPlano.setText("R$ " + String.valueOf(plan.getValor()));
+        });
 
     }
 
@@ -260,7 +298,5 @@ public class ClientController {
                 stage.close();
             }
         }
-
     }
-
 }
